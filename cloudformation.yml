@@ -7,6 +7,7 @@ Resources:
   Role:
     Type: AWS::IAM::Role
     Properties:
+      Description: OIDC role for GitHub Actions, based on https://github.com/Cloudbourn/github-oidc
       AssumeRolePolicyDocument:
         Statement:
           - Effect: Allow

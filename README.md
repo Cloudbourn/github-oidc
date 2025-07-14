@@ -8,7 +8,7 @@ The generated role is only allowed to be assumed by repositories under your user
 
 ## Setup
 
-1. First, fork the repository.
+1. First, fork the repository. You need to explicitly go to Actions and enable workflows.
 
 2. Change the default value from `Cloudbourn` to your Github username or organisation in [cloudformation.yml](./cloudformation.yml)
 
@@ -26,9 +26,7 @@ The generated role is only allowed to be assumed by repositories under your user
 
 4. Now modify the `role-to-assume` ARN in [deploy.yml](./.github/workflows/deploy.yml) with your role name. Don't forget to update the AWS Account ID.
 
-5. If you forked the repository you need to explicitly go to Actions and enable workflows.
-
-6. Commit and push your changes
+5. Commit and push your changes
 
 ## Usage in Github Actions
 
@@ -52,10 +50,10 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4.1.0
         with:
           # Change this role ARN like you did during setup
           role-to-assume: arn:aws:iam::484537476580:role/github-oidc-Role-11HTWA6AOKQLC
